@@ -1,0 +1,12 @@
+/Users/artemdovhopolyi/nau/RiderProjects/lab-yana-5/DAL/bin/Debug/net6.0/DAL.deps.json
+/Users/artemdovhopolyi/nau/RiderProjects/lab-yana-5/DAL/bin/Debug/net6.0/DAL.dll
+/Users/artemdovhopolyi/nau/RiderProjects/lab-yana-5/DAL/bin/Debug/net6.0/DAL.pdb
+/Users/artemdovhopolyi/nau/RiderProjects/lab-yana-5/DAL/obj/Debug/net6.0/DAL.csproj.AssemblyReference.cache
+/Users/artemdovhopolyi/nau/RiderProjects/lab-yana-5/DAL/obj/Debug/net6.0/DAL.GeneratedMSBuildEditorConfig.editorconfig
+/Users/artemdovhopolyi/nau/RiderProjects/lab-yana-5/DAL/obj/Debug/net6.0/DAL.AssemblyInfoInputs.cache
+/Users/artemdovhopolyi/nau/RiderProjects/lab-yana-5/DAL/obj/Debug/net6.0/DAL.AssemblyInfo.cs
+/Users/artemdovhopolyi/nau/RiderProjects/lab-yana-5/DAL/obj/Debug/net6.0/DAL.csproj.CoreCompileInputs.cache
+/Users/artemdovhopolyi/nau/RiderProjects/lab-yana-5/DAL/obj/Debug/net6.0/DAL.dll
+/Users/artemdovhopolyi/nau/RiderProjects/lab-yana-5/DAL/obj/Debug/net6.0/refint/DAL.dll
+/Users/artemdovhopolyi/nau/RiderProjects/lab-yana-5/DAL/obj/Debug/net6.0/DAL.pdb
+/Users/artemdovhopolyi/nau/RiderProjects/lab-yana-5/DAL/obj/Debug/net6.0/ref/DAL.dll
