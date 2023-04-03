@@ -1,0 +1,14 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a17abecd_002D8ab5_002D4179_002Dad4e_002D6e2491f3a686/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="StudentServiceTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::14560C91-7F59-4C9F-8C97-D9707C65738A::net6.0::UnitTests.VisitRepositoryTest.TestWriteVisit&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::14560C91-7F59-4C9F-8C97-D9707C65738A::net6.0::UnitTests.VisitRepositoryTest.TestRemoveVisit&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::14560C91-7F59-4C9F-8C97-D9707C65738A::net6.0::UnitTests.VisitRepositoryTest.GetAllVisits&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::14560C91-7F59-4C9F-8C97-D9707C65738A::net6.0::UnitTests.VisitRepositoryTest.GetVisit&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::14560C91-7F59-4C9F-8C97-D9707C65738A::net6.0::UnitTests.FlatRepositoryTest.TestRemoveVisit&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::14560C91-7F59-4C9F-8C97-D9707C65738A::net6.0::UnitTests.FlatRepositoryTest.TestWriteVisit&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::14560C91-7F59-4C9F-8C97-D9707C65738A::net6.0::UnitTests.FlatRepositoryTest.TestGetFlatById&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::14560C91-7F59-4C9F-8C97-D9707C65738A::net6.0::UnitTests.FlatRepositoryTest.TestGetAllFlats&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	</wpf:ResourceDictionary>

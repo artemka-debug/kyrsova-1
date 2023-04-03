@@ -1,0 +1,1 @@
+[{"id":"8fd85","price":{"price":"1","type":0},"address":"etest","description":"teset","rooms":"1","area":"1","ownerId":null},{"id":"49c67","price":{"price":"1","type":0},"address":"1","description":"1","rooms":"1","area":"1","ownerId":null},{"id":"1d415","price":{"price":"1","type":1},"address":"1","description":"1","rooms":"1","area":"1","ownerId":null}]

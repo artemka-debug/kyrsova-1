@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace DAL
 {
-    public class FileWriter : IFileWriter
+    public class FileWriter : IWriter
     {
         private readonly string _filePath;
         private readonly string _entityName;
@@ -15,11 +15,11 @@ namespace DAL
             _entityName = entityName;
         }
 
-        public T[] ReadAll<T>()
+        public List<T> ReadAll<T>()
         {
             if (!File.Exists(_filePath))
             {
-                return Array.Empty<T>();
+                return new List<T>();
             }
 
             using FileStream fs = new FileStream(_filePath, FileMode.Open, FileAccess.Read);
@@ -32,59 +32,69 @@ namespace DAL
                 NumberHandling = JsonNumberHandling.AllowReadingFromString |
                                  JsonNumberHandling.WriteAsString
             };
+            
 
-            T[] result = new T[100];
-            var current = 0;
-
-            foreach (var line in json.Split("\n"))
+            var entities = JsonSerializer.Deserialize<T[]>(json, options);
+            
+            if (entities == null)
             {
-                if (line.StartsWith(_entityName) || line.Trim() == "")
-                {
-                    continue;
-                }
-
-                result[current++] = JsonSerializer.Deserialize<T>(line, options);
+                return new List<T>();
             }
 
-            return result.Take(current).ToArray();
+            return entities.ToList();
         }
 
-        public void Write(string data)
+        public void Write<T>(T data)
         {
+            var existingEntities = ReadAll<T>();
+            existingEntities.Add(data);
+
+            var json = ToJson(existingEntities);
+
             using FileStream fs = new FileStream(_filePath, FileMode.Create, FileAccess.Write);
-            fs.Write(Encoding.ASCII.GetBytes(data), 0, data.Length);
+            fs.Write(Encoding.ASCII.GetBytes(json), 0, json.Length);
         }
 
-        public void Remove(string firstName, string lastName)
+        public void Remove<T>(string id)
         {
             if (!File.Exists(_filePath))
             {
                 return;
             }
-
-            using FileStream fs = new FileStream(_filePath, FileMode.Open, FileAccess.Read);
-            var buffer = new byte[fs.Length];
-            fs.Read(buffer, 0, buffer.Length);
-
-            var json = Encoding.ASCII.GetString(buffer);
-            var lines = json.Split("\n");
-            var removeIndex = 0;
-
-            for (int i = 0; i < lines.Length; i++)
+            
+            var existingEntities = ReadAll<T>().Where(entity => ((BaseEntity)entity).id != id).ToList();
+            
+            var json = ToJson(existingEntities);
+            
+            using FileStream fs = new FileStream(_filePath, FileMode.Create, FileAccess.Write);
+            fs.Write(Encoding.ASCII.GetBytes(json), 0, json.Length);
+        }
+        
+        public void Replace<T>(T data)
+        {
+            if (!File.Exists(_filePath))
             {
-                var line = lines[i];
-
-                if (line.Contains($"\"FirstName\":\"{firstName}\",\"SecondName\":\"{lastName}\""))
-                {
-                    removeIndex = i;
-                }
+                return;
             }
-
-            lines = lines.Where((_, index) => index != removeIndex - 1 && index != removeIndex).ToArray();
-            json = string.Join("\n", lines);
-
-            using StreamWriter writer = new StreamWriter(_filePath, false);
-            writer.Write(json);
+            
+            var existingEntities = ReadAll<T>().Where(entity =>  ((BaseEntity)entity).id != ((BaseEntity)data).id).ToList();
+            existingEntities.Add(data);
+            
+            var json = ToJson(existingEntities);
+            
+            using FileStream fs = new FileStream(_filePath, FileMode.Create, FileAccess.Write);
+            fs.Write(Encoding.ASCII.GetBytes(json), 0, json.Length);
+        }
+        
+        private string ToJson<T>(T data)
+        {
+            var options = new JsonSerializerOptions()
+            {
+                NumberHandling = JsonNumberHandling.AllowReadingFromString |
+                                 JsonNumberHandling.WriteAsString
+            };
+            
+            return JsonSerializer.Serialize(data, options);
         }
     }
 }

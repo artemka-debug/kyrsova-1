@@ -1,6 +1,6 @@
 using BLL.models;
 
-namespace lab_yana_5
+namespace kyrsova_1
 {
     public class ConsoleHelpers
 {
@@ -32,22 +32,64 @@ namespace lab_yana_5
         return result ?? string.Empty;
     }
     
+    public DateTime GetDateWithMessage(string message)
+    {
+        DateTime date = DateTime.MinValue;
+        bool isValid = false;
+        
+        do {
+            string input = Console.ReadLine();
+            isValid = DateTime.TryParse(input, out date);
+            if (isValid)
+            {
+                return date;
+            }
+            Console.WriteLine(message);
+        } while (!isValid);
+
+        return date;
+    }
+    
     public double GetNumberWithMessage(string message)
     {
         Console.WriteLine(message);
         return GetValidNumberFromConsole("Invalid number", Array.Empty<double>());
     }
     
-    public void PrintFormattedTableRow(Student student)
+    public int GetIntegerWithMessage(string message)
+    {
+        Console.WriteLine(message);
+        var result = 0.1;
+
+        do
+        {
+            result = GetValidNumberFromConsole("Invalid number", Array.Empty<double>());
+        } while (result % 1 != 0);
+
+        return (int)result;
+    }
+
+    public void PrintFormattedTableRow(Visit visit)
     {
         PrintRow(
-            student.FirstName,
-            student.SecondName, 
-            student.Height.ToString(),
-            student.Weight.ToString(),
-            student.PassportNumber,
-            student.PassportSeries,
-            student.StudentId
+            visit.id,
+            visit.flatId,
+            visit.date.ToString("dd.MM.yyyy")
+        );
+    }
+    
+    public void PrintFormattedTableRow(Flat flat)
+    {
+        var priceType = flat.price.type == PriceType.OneTime ? "For sale" : "For rent";
+        
+        PrintRow(
+            flat.id,
+            flat.address,
+            flat.area.ToString(),
+            flat.rooms.ToString(),
+            flat.price.ToString(),
+            flat.ownerId ?? priceType,
+            flat.description
         );
     }
     

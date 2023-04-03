@@ -1,6 +1,6 @@
 using BLL;
 
-namespace lab_yana_5
+namespace kyrsova_1
 {
     public abstract class ConsoleActionAbstract
     {
@@ -14,6 +14,6 @@ namespace lab_yana_5
         this.Index = index;
     }
     
-    public abstract void Execute(ConsoleHelpers consoleHelpers, StudentService studentService);
+    public abstract void Execute(ConsoleHelpers consoleHelpers, FlatRepository flatRepository, VisitRepository visitRepository);
     }
 }

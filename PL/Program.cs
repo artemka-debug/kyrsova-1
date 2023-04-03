@@ -2,18 +2,22 @@
 using BLL;
 using DAL;
 
-namespace lab_yana_5
+namespace kyrsova_1
 {
     public class Program
     {
         public static void Main()
         {
-            var fileWriter = new FileWriter("students.txt", nameof(Student));
-            var studentService = new StudentService(fileWriter);
+            var flatWriter = new FileWriter("flatss.txt", nameof(Flat));
+            var visitWriter = new FileWriter("visits.txt", nameof(Visit));
+            
+            var visitRepository = new VisitRepository(visitWriter);
+            var flatRepository = new FlatRepository(flatWriter);
             var consoleHelpers = new ConsoleHelpers();
             
             var menu = new Menu(
-                studentService,
+                flatRepository,
+                visitRepository,
                 consoleHelpers
             );
 

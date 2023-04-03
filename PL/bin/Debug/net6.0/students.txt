@@ -1,2 +1,2 @@
-Student 34
-{"FirstName":"3","SecondName":"4","Height":130,"Weight":10,"StudentId":"41","PassportSeries":"412","PassportNumber":"1"}
+Student qwertyqwerty
+{"FirstName":"qwerty","SecondName":"qwerty","Height":170,"Weight":56,"StudentId":"1112345678","PassportSeries":"87654321","PassportNumber":"12"}

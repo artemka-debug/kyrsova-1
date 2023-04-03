@@ -1,0 +1,1 @@
+[{"id":"1cb04987497643039c28e00c12544540","price":{"price":"1","type":0},"address":"1","description":"1","rooms":"1","area":"1","ownerId":null}]
